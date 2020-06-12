@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href = "../css/mycss.css">
+<style>
+	header, nav, section, article, footer{
+		box-sizing : border-box;  /* content-box */
+		float : left;
+	}
+	header{
+		width : calc(95% - 2%);
+		height : 100px;
+		background : pink;
+		text-align : center;
+	}
+	nav{
+		width : calc(25% - 1%); 
+		height : 300px;
+		background : orange;
+		float : left;
+		padding-left : 30px;
+	}
+	section{
+		width : calc(70% - 1%); 
+		height : 300px;
+		background : yellow;
+	}
+	article{
+		padding-left : 30px;
+		
+	}	
+	footer{
+		width : calc(95% - 2%);
+		height : 50px;
+		background : #843518;
+		color : white;
+		text-align: center;
+		letter-spacing: 2px;
+	}
+	img{
+		width : 150px;
+		height : 100px;
+	}
+	#toto{
+		text-align: center;
+	}
+	
+</style>
+</head>
+<body>
+	<header>
+		<h1>My Blog Page</h1>
+	</header>
+	
+	<nav>
+		<h2>Links</h2>
+		<ul>
+			<li><a href = "http://www.w3schools.com">W3C</a></li>
+			<li><a href = "https://www.mozilla.org/ko/">MOZILLA</a></li>
+			<li><a href = "https://www.htmldog.com/">HTML Dogs</a></li>
+		</ul>
+		<img src = "../images/토토1.jpg">
+		<p id = "toto">토토</p>
+	</nav>
+
+	<section>
+		<article>
+			<h3>Semantic Tags</h3>
+			<p>시멘틱 요소(Semantic elements)들은 브라우저에게 요소의 의미나 목적을 명확하게 알려주는 요소이다.</p>
+		</article>
+		
+		<article>
+			<h3>div와 span</h3>
+			<p>div은 'divide'의 약자로서 페이지를 논리적인 섹션으로 분리하는데 사용되는 태그이다. sapn 요소는 인라인 요소로서 텍스트를 위한 컨테이너로 사용할 수 있다</p>
+		</article>
+	</section>
+	
+	<footer>
+		<p>Copyright (c) 2013 Hong</p>
+	</footer>
+</body>
+</html>

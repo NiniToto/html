@@ -4,8 +4,9 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel = "stylesheet" href = "../css/mycss.css">
+<link href="https://fonts.googleapis.com/css2?family=Cute+Font&display=swap" rel="stylesheet">
 <style>
-
+	@import url('https://fonts.googleapis.com/css2?family=Gugi&display=swap');
 	body{
 		margin : 0px;
 		padding : 0px;
@@ -24,8 +25,9 @@
 		width : 30%; 
 		height : 300px;
 		background : orange;
-		float : left;
+		/* float : left; */
 		padding-left : 30px;
+		overflow : auto;
 	}
 	section{
 		width : 70%; 
@@ -34,6 +36,7 @@
 	}
 	article{
 		padding-left : 30px;
+		padding-right : 30px;
 		
 	}	
 	footer{
@@ -48,8 +51,12 @@
 		width : 150px;
 		height : 100px;
 	}
-	#toto{
-		text-align: center;
+	figcaption{
+		padding-left : 50px;
+		color : white;
+		font-weight : bold;
+		font-size : 20px;
+		font-family: 'Cute Font', cursive;
 	}
 	
 </style>
@@ -66,8 +73,10 @@
 			<li><a href = "https://www.mozilla.org/ko/">MOZILLA</a></li>
 			<li><a href = "https://www.htmldog.com/">HTML Dogs</a></li>
 		</ul>
-		<img src = "../images/토토1.jpg">
-		<p id = "toto">토토</p>
+		<figure>
+			<img src = "../images/토토1.jpg" alt = "토토">
+			<figcaption>토토</figcaption>
+		</figure>
 	</nav>
 
 	<section>

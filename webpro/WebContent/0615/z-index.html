@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href = "../css/mycss.css">
+<style>
+	div{
+		width : 150px;
+		height: 100px;
+		position  : absolute;
+	}
+	#d1{
+		background: yellow;
+		top : 300px;
+		z-index: 2;
+	}
+	#d2{
+		background: skyblue;
+		top : 320px;
+		left : 50px;
+		z-index : 1;
+	}
+	#d3{
+		background: hotpink;
+		top : 340px;
+		left : 100px;
+		z-index : 0;
+	}
+	#d4{
+		background: lime;
+		top : 360px;
+		left : 150px;
+	}
+	#d5{
+		background: purple;
+		top : 380px;
+		left : 200px;
+	}
+</style>
+</head>
+<body>
+<pre>
+z-index : 여러개의 요소들이 겹쳐있을 때 보여지는 요소를 지정한다
+0이 기준이고 위로 올라올수록 z-index값이 커진다
+#d3{
+	background: hotpink;
+	top : 340px;
+	left : 100px;
+	z-index : 0;
+}
+</pre>
+	<div id = "d1">
+		#d1
+	</div>
+	<div id = "d2">
+		#d2
+	</div>
+	<div id = "d3">
+		#d3
+	</div>
+	<div id = "d4">
+		#d4
+	</div>
+	<div id = "d5">
+		#d5
+	</div>
+</body>
+</html>

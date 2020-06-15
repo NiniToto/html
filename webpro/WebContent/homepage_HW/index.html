@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href = "../css/mycss.css">
+<link href="https://fonts.googleapis.com/css2?family=Cute+Font&display=swap" rel="stylesheet">
+<style>
+	/* *{
+		border : 2px solid red;
+	} */
+	header, #navTop, #navLeft, section, #navRight{
+		float : left;
+		border-radius : 40px;
+		box-sizing : border-box;
+	}
+	header{
+		border : 2px solid skyblue;
+		background : skyblue;
+		width : 90%;
+		height : 80px;
+		text-align : center;
+		font-weight : bold;
+		font-size : 50px;
+		margin-left : 60px;
+		clear : both;
+	}
+	#nini{
+		margin-top : 10px;
+		margin-left : 50px;
+		width : 50px;
+		height : 50px;
+		font-family: 'Cute Font', cursive;
+	}
+	#navTop{
+		clear : both; 
+		border : 2px solid #D0A9F5;
+		width : 90%;
+		height : 60px;
+		margin : 10px 30px;
+		background: #D0A9F5;
+		margin-left : 60px;
+	}
+	a{
+		font-weight : bold;
+		text-align: center;
+		color: white;
+	}
+	ul{
+		padding-left : auto;
+	}
+	li {
+		margin-left : 70px;
+		width : 150px;
+		display : inline-block; /*inline, block, inline-block*/
+		list-style-type : none;
+	}
+	#li3 {
+		margin-left : 150px;
+	}
+	#navLeft{
+		border : 2px solid #F6CEF5;
+		width : 15%;
+		height : 600px;
+		margin-left : 50px;
+		margin-right : 10px;
+		background: #F6CEF5;
+		border-radius : 20px;
+	}
+	section{
+		border : 2px solid gray;
+		width : 60%;
+		height : 600px;
+		border-radius : 0px;
+		margin-right : 10px;
+		margin-bottom : 20px;
+	}
+	iframe{
+		width : 100%;
+		height : 100%;	
+	}
+	#navRight{
+		border : 2px solid #F6CEF5;
+		background: #F6CEF5;
+		width : 15%;
+		height : 600px;
+		border-radius : 20px;
+	}
+	h2{
+		color : white;
+		padding-left : 30px;	
+	}
+	
+	.liLeft {
+		padding : 20px;
+		color : white;
+		border : 2px solid white;
+		background: hotpink;
+		width : 100px;
+		position : relative;
+		left : -70px;
+	}
+	footer{
+		border : 2px solid #8181F7;
+		background : #8181F7;
+		width : 90%;
+		height : 40px;
+		margin-left : 60px;
+		margin-top : 40px;
+		border-radius : 20px;
+		clear : both;
+		text-align: center;
+		padding-top : 10px;
+		color : white;
+	}
+	#a_cart{
+		padding-left : 60px;
+	}
+	div{
+		border : none;
+	}
+</style>
+
+</head>
+<body>
+	<header><img id = "nini" src = "니니.jpg" alt = "니니"> CAT SHOPPING</header>
+	<nav id = "navTop">
+		<ul>
+			<li><a href = "index.html">HOME</a></li>
+			<li><a href = "">SHOPPING ABOUT</a></li>
+			<li id = "li3"><a href = "">NEWS</a></li>
+			<li><a href = "">MY ACCOUNT</a></li>
+			<li><a href = "">CONTACTS</a></li>
+		</ul>
+	</nav>
+	<nav id = "navLeft">
+		<h2>카테고리</h2>
+		<ul id = "ulLeft">
+			<li class = "liLeft"><a onclick = "disp_pro(this)" target = "ifr" href = "사료.html">사료</a></li>
+			<li class = "liLeft"><a onclick = "disp_pro(this)" target = "ifr" href = "건강.html">건강</a></li>
+			<li class = "liLeft"><a onclick = "disp_pro(this)" target = "ifr" href = "캣타워.html">캣타워</a></li>
+			<li class = "liLeft"><a onclick = "disp_pro(this)" target = "ifr" href = "목욕&미용.html">목욕&미용</a></li>
+			<li class = "liLeft"><a onclick = "disp_pro(this)" target = "ifr" href = "모래.html">모래</a></li>
+			<li class = "liLeft"><a onclick = "disp_pro(this)" target = "ifr" href = "장난감.html">장난감</a></li>
+			<li class = "liLeft"><a onclick = "disp_pro(this)" target = "ifr" href = "간식.html">간식</a></li>
+		</ul>
+	</nav>
+	<br>
+	<section>
+		<iframe src = "./images/니니토토.png" name = "ifr"></iframe>	
+	</section>
+	<br>
+	<nav id = "navRight">
+		<h2>Shopping cart</h2>
+		<p>현재 쇼핑카트에 물품이 없습니다.</p>
+		<a id = "a_cart" href = "">쇼핑카트 보기</a>
+		<br>
+		<br>
+		<h2>Log In</h2>
+		<div>
+			아이디
+			<input id = "id" type = "text"><br>
+			<br>
+			비밀번호
+			<input id = "pass" type = "text"><br>
+			<br>
+			<input type = "button" value = "로그인" onclick = "inputproc()">
+			<input type = "reset" value = "초기화">
+		</div>
+	</nav>
+	<br>
+	<footer>2020.06.15 대덕인재개발원 201호 이재민</footer>
+	
+	
+</body>
+</html>

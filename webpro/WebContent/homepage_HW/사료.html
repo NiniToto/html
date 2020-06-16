@@ -7,7 +7,8 @@
 <style>
 	/* *{
 		border : 2px solid red;
-	} */
+		float : left;
+	} */ 
 	img{
 		width : auto;
 		height : 200px;
@@ -16,7 +17,12 @@
 		float : left;
 	}
 	div{
+		float : left;
+		width : 31%;
+		height : 600px;
 		border : none;
+		border-left : 2px solid gray;
+		text-align : center;
 	}
 	figcaption{
 		background: skyblue;
@@ -27,6 +33,10 @@
 	}
 	hr{
 		margin-right : 300px;
+	}
+	input{
+		margin-top : 10px;
+		margin-left : 25%;
 	}
 	
 </style>
@@ -55,10 +65,9 @@
 			성분구성
 			조단백 33%이상, 조지방 16%이상, 칼슘 0.95%이상, 인 1.8%이하, 조섬유 7%이하, 조회분 9%이하, 조수분 12%이하
 		</figure>
+		<input type = "button" value = "쇼핑카트에 담기" onclick = "inputproc()">
 	</div>
-	<br>
-	<hr>
-	<br>
+
 	<div>
 		<figure>
 			<figcaption>가정묘용 헤어볼관리</figcaption>
@@ -81,10 +90,9 @@
 			성분구성
 			조단백 25% 이상, 조지방 11% 이상, 칼슘 0.88% 이상, 인 0.64% 이상, 조섬유 5.0% 이하, 조회분 8.0% 이하, 수분 7% 이하
 		</figure>
+		<input type = "button" value = "쇼핑카트에 담기" onclick = "inputproc()">
 	</div>
-	<br>
-	<br>
-	<hr>
+
 	<div>
 		<figure>
 			<figcaption>가정묘용 체중관리</figcaption>
@@ -105,7 +113,7 @@
 			성분구성
 			조단백질 29.0% 이상, 조지방 13.0% 이상, 칼슘 0.8% 이상, 인 0.8% 이상, 조섬유 9.0% 이하, 조회분 8.0% 이하, 수분 10.0% 이하
 		</figure>
+		<input type = "button" value = "쇼핑카트에 담기" onclick = "inputproc()">
 	</div>
-	<hr>
 </body>
 </html>

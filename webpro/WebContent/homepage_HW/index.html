@@ -119,11 +119,30 @@
 	div{
 		border : none;
 	}
+	#login{
+		border : 2px solid red;
+		background: red;
+		padding-left : 35%;
+	}
+	#sc{
+		text-shadow : 3px 3px 10px hotpink;
+	}
+	button{
+		color : black;
+	}
+	span{
+		color : black;
+	}
+/* 	input[type="button"], input[type="reset"]{
+		width : 50px;
+		height : 25px;
+	} */
 </style>
+
 
 </head>
 <body>
-	<header><img id = "nini" src = "니니.jpg" alt = "니니"> CAT SHOPPING</header>
+	<header><img id = "nini" src = "./images/니니.jpg" alt = "니니"> CAT SHOPPING</header>
 	<nav id = "navTop">
 		<ul>
 			<li><a href = "index.html">HOME</a></li>
@@ -136,36 +155,37 @@
 	<nav id = "navLeft">
 		<h2>카테고리</h2>
 		<ul id = "ulLeft">
-			<li class = "liLeft"><a onclick = "disp_pro(this)" target = "ifr" href = "사료.html">사료</a></li>
-			<li class = "liLeft"><a onclick = "disp_pro(this)" target = "ifr" href = "건강.html">건강</a></li>
-			<li class = "liLeft"><a onclick = "disp_pro(this)" target = "ifr" href = "캣타워.html">캣타워</a></li>
-			<li class = "liLeft"><a onclick = "disp_pro(this)" target = "ifr" href = "목욕&미용.html">목욕&미용</a></li>
-			<li class = "liLeft"><a onclick = "disp_pro(this)" target = "ifr" href = "모래.html">모래</a></li>
-			<li class = "liLeft"><a onclick = "disp_pro(this)" target = "ifr" href = "장난감.html">장난감</a></li>
-			<li class = "liLeft"><a onclick = "disp_pro(this)" target = "ifr" href = "간식.html">간식</a></li>
+			<li class = "liLeft"><a target = "ifr" href = "사료.html">사료</a></li>
+			<li class = "liLeft"><a target = "ifr" href = "건강.html">건강</a></li>
+			<li class = "liLeft"><a target = "ifr" href = "캣타워.html">캣타워</a></li>
+			<li class = "liLeft"><a target = "ifr" href = "영화.html">영화</a></li>
+			<li class = "liLeft"><a target = "ifr" href = "음악.html">음악</a></li>
+			<li class = "liLeft"><a target = "ifr" href = "장난감.html">장난감</a></li>
+			<li class = "liLeft"><a target = "ifr" href = "간식.html">간식</a></li>
 		</ul>
 	</nav>
 	<br>
 	<section>
-		<iframe src = "./images/니니토토.png" name = "ifr"></iframe>	
+		<iframe src = "./images/메인화면.png" name = "ifr"></iframe>	
 	</section>
 	<br>
 	<nav id = "navRight">
-		<h2>Shopping cart</h2>
+		<h2 id = "sc">Shopping cart</h2>
 		<p>현재 쇼핑카트에 물품이 없습니다.</p>
-		<a id = "a_cart" href = "">쇼핑카트 보기</a>
+		<a id = "a_cart" href = "cart.jsp" target = "ifr">쇼핑카트 보기</a>
 		<br>
 		<br>
-		<h2>Log In</h2>
+		<h2 id = "login">Log In</h2>
 		<div>
-			아이디
-			<input id = "id" type = "text"><br>
-			<br>
-			비밀번호
-			<input id = "pass" type = "text"><br>
-			<br>
-			<input type = "button" value = "로그인" onclick = "inputproc()">
-			<input type = "reset" value = "초기화">
+			<form action="post.jsp" method = "post">
+			아이디 
+			<input name = "id"><br>
+			비밀번호 
+			<input type = "password" name = "pass"><br>
+			<input type = "submit" value = "로그인"> 
+			</form>
+			<input type = "reset" value = "취소">
+			<button><a href = "joinForm.html"><span>회원가입</span></a></button>
 		</div>
 	</nav>
 	<br>

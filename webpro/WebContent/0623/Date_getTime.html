@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href = "../css/mycss.css">
+<style>
+</style>
+<script type="text/javascript">
+	//현재 일자
+	d1 = new Date();
+	
+	function proc1(){
+		//태어난 날
+		my = new Date("1991 12 09");
+		
+		//두 날 사이의 간격
+		sec = (d1.getTime() - my.getTime()) / 1000; //초
+		time = sec / 3600; // 시간
+		day = time / 24; // 일
+		month = day / 30; // 월
+		year = month / 12; // 년
+		
+		res = "태어난 날 1991 12 09에서 오늘까지 경과한 초 : " + sec + "<br>";
+		res += "태어난 날 1991 12 09에서 오늘까지 경과한 시간 : " + time + "<br>";
+		res += "태어난 날 1991 12 09에서 오늘까지 경과한 일 : " + day + "<br>";
+		res += "태어난 날 1991 12 09에서 오늘까지 경과한 월 : " + month + "<br>";
+		res += "태어난 날 1991 12 09에서 오늘까지 경과한 년 : " + year + "<br>";
+		
+		document.querySelector("#result1").innerHTML = res;
+	}
+	
+	function proc2(){
+		input = parseInt(prompt("몇 일 후의 날짜가 궁금한가요", "정수 입력"));
+		ms = input * 24 * 3600 * 1000;
+		week = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
+		
+		day = new Date(d1.getTime() + ms);
+		
+		res = `${d1.toLocaleDateString()}로 부터 ${input}일 후는 <br>`;
+		res += `==> ${day.toLocaleDateString()} ${week[day.getDay()]} 입니다.`;
+		
+		document.querySelector("#result2").innerHTML = res;
+	}
+
+	function proc3(){
+		//태어난 날
+		xmas = new Date("2020 12 25");
+		
+		//두 날 사이의 간격
+		sec = (xmas.getTime() - d1.getTime()) / 1000; //초
+		time = sec / 3600; // 시간
+		day = time / 24; // 일
+		month = day / 30; // 월
+		year = month / 12; // 년
+		
+		res = "2020 12 25까지 남은 날 : " + day + 일"<br>";
+		
+		document.querySelector("#result3").innerHTML = res;
+	}
+</script>
+</head>
+<body>
+	<div class = "box">
+		<h2>1. getTime - 경과시간 구하기</h2>
+		- 태어난 날과 현재 일자 사이의 경과 시간 구하기<br>
+		<input type = "button" value = "확인" onclick = "proc1()"> 
+		<div id = "result1"></div>
+	</div>
+	
+	<div class = "box">
+		<h2>2. getTime - 경과시간 구하기</h2>
+		- 오늘을 기준으로 100일 후의 날짜 구하기<br>
+		- 오늘의 getTime() + 100일 후의 시간<br>
+		- 1일 : 24 * 60 * 60 * 1000 millisec<br>  
+		<input type = "button" value = "확인" onclick = "proc2()"> 
+		<div id = "result2"></div>
+	</div>
+	
+	<div class = "box">
+		<h2>3. getTime - 경과시간 구하기</h2>
+		- 크리스마스까지 며칠 남았나?<br>
+		- newDate(2020, 12-1, 25)<br>
+		<input type = "button" value = "확인" onclick = "proc3()"> 
+		<div id = "result3"></div>
+	</div>
+</body>
+</html>

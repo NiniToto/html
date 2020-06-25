@@ -36,6 +36,7 @@
 	function proc3(){
 		
 		sum = 0;
+		res = "";
 		
 		while(true){
 			su = parseInt(prompt("수 입력", "종료 : 0"));
@@ -43,12 +44,75 @@
 			if(su == 0){
 				break;
 			}
-			
 			sum += su;
+			res += su + "&nbsp;";
 		}
 		
-		str = "합  : " + sum;
+		str = "합  : " + sum + "<br>";
+		str += "입력값 : " + res;
 		document.querySelector("#result3").innerHTML = str;
+	}
+	
+	function proc4(){
+		
+		dan = prompt("단 입력");
+		res = "";
+		
+		for (i = 1; i < 10; i++){
+			res +=	dan + " * " + i + " = " + dan*i + "<br>";		
+		//document.write(res);
+		}
+		document.querySelector("#result4").innerHTML = res;
+	}
+	
+	function proc5(){
+		
+		res = "";
+		for (i = 0; i < 3; i++){
+			dan = prompt("단 입력");
+			res += "<br>" + dan + "단-----------<br>";
+			for(j = 1; j < 10; j++){
+				res +=	dan + " * " + j + " = " + dan*j + "<br>";		
+			}
+			document.querySelector("#result5").innerHTML = res;
+		}
+	}
+	
+	function proc6(){
+		
+		res = "";
+		for (i = 0; ; i++){
+			dan = prompt("단 입력");
+			if(dan == 0 || dan == null){
+				break;
+			}
+			res += "<br>" + dan + "단-----------<br>";
+			for(j = 1; j < 10; j++){
+				res +=	dan + " * " + j + " = " + dan*j + "<br>";		
+			}
+			document.querySelector("#result6").innerHTML = res;
+		}
+	}
+	
+	function proc7(){
+		
+		res = "";
+		for (i = 0; ; i++){
+			dan = prompt("단 입력");
+
+			res += "<br>" + dan + "단-----------<br>";
+			
+			for(j = 1; j < 10; j++){
+				res +=	dan + " * " + j + " = " + dan*j + "<br>";		
+			}
+			document.querySelector("#result7").innerHTML = res;
+			
+			yn = confirm("계속(y/n)?");
+			if(!yn){
+				break;
+			}
+		}
+			
 	}
 </script>
 </head>
@@ -57,6 +121,7 @@
 변수 선언 :
 1. var : 선언된 위치의 함수 영역에서 사용 가능
 2. let : 선언된 위치의 블럭 내에서만 사용 가능
+3. const : 상수, 변수의 값을 변경할 수 없다 
 
 for, while, do-while
 </pre>
@@ -82,6 +147,47 @@ for, while, do-while
 		- 0을 입력하면 종료, 결과 출력
 		<input type = "button" value = "확인" onclick = "proc3()">
 		<div id = "result3">
+		</div>
+	</div>
+
+	<div class = "box">
+		<h2>4. 입력한 수 구구단 구하기 </h2>
+		- prompt 사용<br>
+		- 결과 출력
+		<input type = "button" value = "확인" onclick = "proc4()">
+		<div id = "result4">
+		</div>
+	</div>
+
+	<div class = "box">
+		<h2>5. 입력한 수 구구단 구하기 </h2>
+		- prompt 사용<br>
+		- 3번 입력해서 결과 출력<br>
+		<input type = "button" value = "확인" onclick = "proc5()">
+		<div id = "result5">
+		</div>
+	</div>
+
+	<div class = "box">
+		<h2>6. 입력한 수 구구단 구하기 </h2>
+		- prompt 사용<br>
+		- 입력횟수는 정해져 있지 않다 (0 입력 시 종료)<br>
+		- 또는 취소 버튼(null) 클릭하면 종료
+		- 결과 출력<br>
+		<input type = "button" value = "확인" onclick = "proc6()">
+		<div id = "result6">
+		</div>
+	</div>
+	
+	<div class = "box">
+		<h2>7. 입력한 수 구구단 구하기 </h2>
+		- prompt 사용<br>
+		- 입력횟수는 정해져 있지 않다<br>
+		- 계속여부(y/n)에 의해서 종료 
+		- confirm() : true / false를 리턴<br>
+		- 결과 출력<br>
+		<input type = "button" value = "확인" onclick = "proc7()">
+		<div id = "result7">
 		</div>
 	</div>
 </body>

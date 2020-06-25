@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href = "../css/mycss.css">
+<style>
+</style>
+<script type="text/javascript">
+	var sum = 0; // 전역변수 : 모든 함수에서 사용가능
+	
+	function add(a,b){
+		var sum = a + b; // 지역변수 : add()내에서만 사용 가능
+		return sum;
+	}
+	
+	function sub(a,b){
+		sum = a - b; // 전역변수 sum
+	}
+	
+	window.onload = function(){
+		add(4,5);
+		document.querySelector("#result1").innerHTML = "지역변수 : " +sum + "<br>";
+		document.querySelector("#result1").innerHTML += "Return : " + add(4,5) + "<br>";
+		x = prompt("입력 1");
+		y = prompt("입력 2");
+		sub(x,y);
+		str = `${x} - ${y} = ${sum} <br>`;
+		document.querySelector("#result1").innerHTML += "전역변수 : " + sum;
+		document.querySelector("#result1").innerHTML += str;
+	}
+	
+</script>
+</head>
+<body>
+<pre>
+ES6 표준 : 
+문자열과 변수를 한번에 사용
+- `(grave accent || backtick || backquote)으로 감싸서 그대로 표현
+- backtick(`)안에 변수는 ${}를 이용한다.
+- backtick(`)을 이용해서 문자열을 표현한 것을 템플릿 리터럴이라고 한다. 
+</pre>
+	<div class = "box">
+		<h2>배열</h2>
+		<div id = "result1"></div>
+	</div>
+	
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href = "../css/mycss.css">
+<style>
+	#result2{
+		height : 200px;
+		overflow: auto;
+	}
+</style>
+<script type="text/javascript">
+	window.onload = function(){
+		res = "";
+		for(i = 0; i < 6; i++){
+			rd = parseInt(Math.random() * 45 + 1);
+			res += rd + ",";
+		}
+		
+		res = res.substring(0, res.length-1);
+		
+		document.getElementById("result1").innerHTML = res;
+		
+	}
+	
+	function proc1(){
+		res = "";
+		for(i = 0; i < 6; i++){
+			rd = parseInt(Math.random() * 45 + 1);
+			res += rd + ",";
+		}
+		
+		res = res.substring(0, res.length-1) + "<br>";
+		
+		document.getElementById("result2").innerHTML += res;
+		
+	}
+	
+</script>
+</head>
+<body>
+	<div class = "box">
+		<h2>1. 1~100까지 랜덤수를 5개씩 발생</h2>
+		- 버튼없이 실행하자마자 곧바로 출력되도록 한다.<br>
+		- window.onload = function(){}<br>
+		<div id = "result1"></div>
+	</div>
+																							
+	<div class = "box">
+		<h2>2. 1~100까지 랜덤수를 5개씩 발생</h2>
+		- 버튼을 클릭하면 새롭게 누적으로 출력되도록 한다.<br>
+		<input type = "button" value = "확인" onclick = "proc1()"> 
+		<div id = "result2"></div>
+	</div>
+</body>
+</html>

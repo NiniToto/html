@@ -23,7 +23,7 @@ span{
 	border : 5px double gray;
 	border-left : none;
 	border-right : none;
-	font-size : 1.3em;
+	/* font-size : 1.3em; */
 	padding : 20px;
 	margin :20px;
 	background : rgba(233,134,200,0.3);	

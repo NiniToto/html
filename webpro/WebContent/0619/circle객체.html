@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href = "../css/mycss.css">
+<style>
+</style>
+<script type="text/javascript">
+	
+	function Circle(name = "동글동글", rad = 2){
+		this.name = name,
+		this.rad = rad,
+		this.getArea = function(){
+			return Math.PI * Math.pow(this.rad, 2);
+		},
+		this.getCircum = function(){
+			return 2 * Math.PI * this.rad;
+		}
+		this.setRad = function(r){
+			this.rad = r;
+		}
+	}
+
+	function print(cir, div){
+		res = `이름 : ${cir.name} <br>`;
+		res += `반지름 : ${cir.rad} <br>`;
+		res += `넓이 : ${cir.getArea()} <br>`;
+		res += `둘레 : ${cir.getCircum()} <br>`;
+		
+		document.querySelector(div).innerHTML = res;		
+	}
+
+	function proc1(){
+		circle = { 
+			name : prompt("이름 입력"), 
+			rad :  prompt("반지름 입력"),
+			getArea : function(){
+				return Math.PI * this.rad * this.rad;
+			},
+			getCircum : function(){
+				return 2 * Math.PI * this. rad;
+			}
+		}
+
+		print(circle, '#result1');
+	}
+	
+	function proc2(){
+		name = prompt("이름 입력"); 
+		rad =  parseInt(prompt("반지름 입력"));
+		//cc = new Circle(name, rad);
+		cc = new Circle();
+		print(cc, '#result2');
+		
+	}
+	
+	function proc3(){
+		nc = parseInt(prompt("증가할 반지름 값을 입력"));
+		
+		//메서드 추가
+		cc.getRad = function(){
+			return this.rad; 	
+		}
+		
+		cc.setRad(cc.getRad() + nc);
+		print(cc, '#result3');
+		
+		
+	}
+</script>
+</head>
+<body>
+	<div class = "box">
+		<h2>1. circle객체</h2>
+		- 리터럴(상수)에 의한 생성<br>
+		- 속성 : name, rad<br>
+		- 메서드 : getArea(), getCircum()<br>
+		<input type = "button" value = "확인" onclick = "proc1()"> 
+		<div id = "result1"></div>
+	</div>
+	
+	<div class = "box">
+		<h2>2. circle객체</h2>
+		- 생성자에 의한 생성<br>
+		- 속성 : name, rad<br>
+		- 메서드 : getArea(), getCircum()<br>
+		<input type = "button" value = "확인" onclick = "proc2()"> 
+		<div id = "result2"></div>
+	</div>
+
+	<div class = "box">
+		<h2>3. circle객체</h2>
+		- 2번에서 정의한 circle 객체를 이용한다
+		- 반지름 변경 - 현재값 + 3 <br>
+		<input type = "button" value = "확인" onclick = "proc3()"> 
+		<div id = "result3"></div>
+	</div>
+</body>
+</html>

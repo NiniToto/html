@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href = "../css/mycss.css">
+<style>
+</style>
+<script>
+	function proc1(){
+		res = "";
+			for(i = 1; i <= 100; i++){
+				if(i % 2 == 0 && i % 3 == 0){
+					res += i + " ";
+				}
+			}
+			document.querySelector("#result1").innerHTML = res;
+		
+	}
+	
+	function proc2(){
+		res = "";
+		cnt = 0;
+		while(true){
+			a = parseInt(prompt("첫번째 수 입력"));
+			b = parseInt(prompt("두번째 수 입력"));
+			cnt++;
+			if(a == 0 && b == 0){
+				break;
+			}
+			if(a+b < 100){
+				continue;
+			}else{
+			res += cnt + "번째 입력 : " + "a : " + a + ", " + "b : " + b + "<br>";
+			}
+		}
+			document.querySelector("#result2").innerHTML = res;
+	}
+</script>
+</head>
+<body>
+	<div class = "box">
+		<h2>1. 1~100까지 중 2의 배수이면서 3의 배수인것만 출력</h2>
+		- continue를 이용 <br>
+		- 두 수 모두 0이 입력되면 종료<br>
+		<input type = "button" value = "확인" onclick = "proc1()"> 
+		<div id = "result1"></div>
+	</div>
+	
+	<div class = "box">
+		<h2>2. 두 수를 입력하여 두 수의 합이 100이상일 때만 출력 </h2>
+		- continue를 이용 <br>
+		- 두 수 모두 0이 입력되면 종료<br>
+		<input type = "button" value = "확인" onclick = "proc2()"> 
+		<div id = "result2"></div>
+	</div>
+</body>
+</html>

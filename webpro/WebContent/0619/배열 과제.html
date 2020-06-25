@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href = "../css/mycss.css">
+<style>
+</style>
+<script type="text/javascript">
+	
+	function exam1(){
+	
+		arr = new Array();
+		
+		while(true){
+			input = prompt("배열에 저장할 값을 입력");
+			
+			if(input == null || input == "") break;
+			
+			arr.push(input);
+			res = `배열 : ${arr}`;
+		}
+		document.querySelector("#result1").innerHTML = res;
+	}
+	
+	function exam2(){
+		
+		arr = new Array();
+		
+		while(true){
+			input = prompt("배열에 저장할 값을 입력(중복X)");
+			
+			if(arr.indexOf(input) == -1){
+				arr.push(input);
+			}else{
+				alert(input + "은 중복된 수입니다.");
+			}
+			res = `배열 : ${arr}`;
+			
+			if(arr.length == 5){
+				break;
+			}
+		}
+		document.querySelector("#result2").innerHTML = res;
+	}
+	
+</script>
+</head>
+<body>
+	<div class = "box">
+		<h2>1번. 배열 문제 - 추가 </h2>
+		<input type = "button" value = "확인" onclick = "exam1()"> 
+		<div id = "result1"></div>
+	</div>
+
+	<div class = "box">
+		<h2>2번. 배열 문제 - 추가 (중복되지 않은 정수 5개)</h2>
+		<input type = "button" value = "확인" onclick = "exam2()"> 
+		<div id = "result2"></div>
+	</div>
+	
+</body>
+</html>

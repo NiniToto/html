@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href = "../css/mycss.css">
+<style>
+</style>
+<script type="text/javascript">
+	
+	a = ["사과", "바나나", "딸기", "포도", "사과", "자몽", "수박", "참외", "사과", "딸기"];
+	
+	function proc1(){
+		str = prompt("찾을 과일 이름 입력");
+		idx = a.indexOf(str);
+		if(idx >= 0){
+			res = "찾는 이름 : " + str + "<br>";
+			res += "인덱스 위치 : " + idx;
+		}else{
+			res = "찾는 이름 " +str +" 이(가) 없습니다.";
+		}
+		
+		document.querySelector("#result1").innerHTML = res;
+	}
+	
+	function proc2(){
+		str = prompt("찾을 과일 이름 입력");
+		idx = a.lastIndexOf(str);
+		if(idx >= 0){
+			res = "찾는 이름 : " + str + "<br>";
+			res += "인덱스 위치 : " + idx;
+		}else{
+			res = "찾는 이름 " +str +" 이(가) 없습니다.";
+		}
+		
+		document.querySelector("#result2").innerHTML = res;
+	}
+	
+	function proc3(){
+		idx = 0;
+		item = prompt("찾는 과일을 입력");
+		res = "찾는 과일 : " + item + "<br>";
+		
+		while(true){
+			idx = a.indexOf(item , idx);
+			
+			if(idx == -1) break;
+			
+			res += "인덱스 위치 : " + idx + "<br>";
+			
+			idx++;
+		}
+		document.querySelector("#result3").innerHTML = res;
+	}
+	
+	function proc4(){
+		
+		//res = "원래 배열 " + a + "<br>"
+		res = `원래 배열 : ${a} <br>`;
+		
+		//새로 추가할 항목 입력
+		item = prompt("추가 항목 입력"); 
+		a.push(item);
+		
+		res += `추가된 배열 : ${a} <br>`;
+		
+		document.querySelector("#result4").innerHTML = res;
+	}
+	
+	function proc5(){
+		
+		res = `원래 배열 : ${a} <br>`;
+		
+		a.pop();
+		
+		res += `삭제된 배열 : ${a} <br>`;
+		
+		document.querySelector("#result5").innerHTML = res;
+	}
+	
+	function proc6(){
+		
+		res = `원래 배열 : ${a} <br>`;
+		
+		item = prompt("추가 항목 입력");
+		a.unshift(item);
+		
+		res += `unshift 배열 : ${a} <br>`;
+		
+		document.querySelector("#result6").innerHTML = res;
+	}
+	
+	function proc7(){
+		
+		res = `원래 배열 : ${a} <br>`;
+		
+		a.shift();
+		
+		res += `shift 배열 : ${a} <br>`;
+		
+		document.querySelector("#result7").innerHTML = res;
+	}
+</script>
+</head>
+<body>
+	<div class = "box">
+		<h2>1. 배열 메서드 - 검색</h2>
+		a = ["사과", "바나나", "딸기", "포도", "사과", "자몽", "수박", "참외", "사과", "딸기"];<br>
+		- indexOf(item, start)<br>
+		- lastIndexOf(item, start)<br>
+		<input type = "button" value = "indexOf" onclick = "proc1()">
+		<input type = "button" value = "lastIndexOf" onclick = "proc2()">
+		<br>
+		<input type = "button" value = "IndexOf(중복찾기)" onclick = "proc3()">
+		<div id = "result1"></div>
+		<div id = "result2"></div>
+		<div id = "result3"></div>
+	</div>
+
+	<div class = "box">
+		<h2>2. 배열 메서드 - 추가, 삭제</h2>
+		a = ["사과", "바나나", "딸기", "포도", "사과", "자몽", "수박", "참외", "사과", "딸기"];<br>
+		- push()/pop()<br>
+		- unshift()/shift()<br>
+		<input type = "button" value = "push" onclick = "proc4()">
+		<input type = "button" value = "pop" onclick = "proc5()">
+		<br>
+		<input type = "button" value = "unshift" onclick = "proc6()">
+		<input type = "button" value = "shift" onclick = "proc7()">
+		<div id = "result4"></div>
+		<div id = "result5"></div>
+		<div id = "result6"></div>
+		<div id = "result7"></div>
+	</div>
+</body>
+</html>

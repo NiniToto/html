@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href = "../css/mycss.css">
+<style>
+</style>
+<script type="text/javascript">
+	
+	today = new Date();
+	
+	function proc1(){
+		dvalue = document.querySelector("input").value;
+		
+		inputday = new Date(dvalue);
+		
+		time = parseInt(today.getTime() - inputday.getTime()) / (1000 * 3600 * 24);
+		
+		console.log(time);
+		res = `구입날짜 : ${inputday.toLocaleDateString()} <br>`; 
+		if(time < 0){
+			res += "날짜 선택 오류입니다. <br>";
+		}else{
+			if(time > 7){
+				res += "교환/반품 불가능 <br>";
+			}else{
+				res += "교환/반품 가능 <br>";
+			}
+		}
+		
+		document.querySelector("#result1").innerHTML = res;
+	}
+</script>
+</head>
+<body>
+	<div class = "box">
+		<h2>1. Date객체</h2>
+		- 구입날짜를 선택한다.<br>
+		- 오늘 날짜 까지의 날 수를 구한다.<br>
+		- 구입한 날로부터 7일 이상이면 교환반품 불가능<br>
+		- 7일 이하면 교환 반품 가능<br>
+		<br>
+		구입 날짜 : <input type = "date"><br>
+		<input type = "button" value = "확인" onclick = "proc1()"> 
+		<div id = "result1"></div>
+	</div>
+	
+	<div class = "box">
+		<h2>2. Date객체</h2>
+		- 구입날짜를 선택한다.<br>
+		- 오늘 날짜 까지의 날 수를 구한다.<br>
+		- 구입한 날로부터 7일 이상이면 교환반품 불가능<br>
+		- 7일 이하면 교환 반품 가능<br>
+		<br>
+		구입 날짜 : <input type = "date"><br>
+		<input type = "button" value = "확인" onclick = "proc1()"> 
+		<div id = "result1"></div>
+	</div>
+</body>
+</html>

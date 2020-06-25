@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href = "../css/mycss.css">
+<style>
+</style>
+<script type="text/javascript">
+
+	today = new Date();
+	
+	function proc1(){
+		std = new Date("2010 01 01");
+		
+		diff = parseInt((today.getTime() - std.getTime()) / (1000 * 3600 * 24));
+		
+		res = `${std.toLocaleDateString()} 로 부터 <br>`;
+		res += `오늘 : ${today.toLocaleDateString()} 까지의 <br>`;
+		res += `차이 일 수 : ${diff}일`;
+		
+		document.querySelector("#result1").innerHTML = res;
+	}
+	
+	function proc2(){
+		
+		ms = 500 * 24 * 3600 * 1000;
+		
+		after = new Date(today.getTime() + ms);
+		
+		res = `${today.toLocaleDateString()} 로 부터 <br>`;
+		res += `500일 후의 날짜는 <br>`;
+		res += `${after.toLocaleDateString()} 입니다.`;
+		
+		document.querySelector("#result2").innerHTML = res;
+	}
+</script>
+</head>
+<body>
+	<div class = "box">
+		<h2>1. Date 객체</h2>
+		- 2010년 1월 1일부터 오늘까지의 날짜수를 계산하는 프로그램을 작성하시오.<br>
+		- (소수점은 parseInt()을 이용하여 버린다.)<br>
+		<input type = "button" value = "확인" onclick = "proc1()"> 
+		<div id = "result1"></div>
+	</div>
+	
+	<div class = "box">
+		<h2>1. Date 객체</h2>
+		- 오늘부터 500일 후의 날짜를 출력하는 프로그램을 작성하시오.<br>
+		<input type = "button" value = "확인" onclick = "proc2()"> 
+		<div id = "result2"></div>
+	</div>
+	
+</body>
+</html>

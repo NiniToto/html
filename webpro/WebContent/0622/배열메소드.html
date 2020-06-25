@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href = "../css/mycss.css">
+<style>
+
+</style>
+<script type="text/javascript">
+	a = [11, 100, 180, 53, 22, 230, 450]
+	
+	function proc1(){
+		a.reverse();
+		document.querySelector("#result1").innerHTML = a;
+	}
+	
+	function proc2(){
+		a.sort();
+		document.querySelector("#result2").innerHTML = a;
+	}
+
+	function proc3(){
+		a.sort(function(a, b){ return a - b; });
+		document.querySelector("#result3").innerHTML = a;
+	}
+
+	function proc4(){
+		a.sort(function(a, b){ return b - a; });
+		document.querySelector("#result4").innerHTML = a;
+	}
+	
+	a2 = ["0.사과", "1.포도", "2.수박", "3.참외", "4.파인애플", "5.망고", "6.딸기", "7.자몽"];
+	
+	function proc5(){
+		/* a3 = a2.slice(2,6);
+		res = "원래 배열 : " + a2 + "<br>";
+		res += "silce(2, 6) : " + a3; */
+		idx1 = a2.indexOf("1.포도");
+		idx2 = a2.indexOf("4.파인애플");
+		
+		a3 = a2.slice(idx1, idx2);
+		res = `원래배열 : ${a2} <br>`;
+		res += `slice(${idx1}, ${idx2}) : ${a3} <br>`;
+		
+		document.querySelector("#result5").innerHTML = res;
+	}
+	
+	function proc6(){
+		idx = prompt("삽입할 인덱스를 입력");
+		add = prompt("삽입할 이름을 입력");
+		res = `원래배열 : ${a2} <br>`;
+		a2.splice(idx, 0, add); //0은 몇개를 삭제할 지 정하는 요소.
+		res += `a2.splice(${idx}, 0, ${add}) : ${a2} <br>`;
+		
+		document.querySelector("#result6").innerHTML = res;
+	}
+	
+	function proc7(){
+		idx = prompt("삽입할 인덱스를 입력");
+		add = prompt("삽입할 이름을 입력");
+		res = `원래배열 : ${a2} <br>`;
+		a2.splice(idx, 1, add); //0은 몇개를 삭제할 지 정하는 요소.
+		res += `a2.splice(${idx}, 1, ${add}) : ${a2} <br>`;
+		
+		document.querySelector("#result7").innerHTML = res;
+	}
+
+	function proc8(){
+		idx = prompt("삽입할 인덱스를 입력");
+		del = prompt("삭제할 인덱스 개수 입력");
+		res = `원래배열 : ${a2} <br>`;
+		a2.splice(idx, del); //idx위치에서 2개의 요소를 삭제
+		res += `a2.splice(${idx}, ${del}) : ${a2} <br>`;
+		
+		document.querySelector("#result8").innerHTML = res;
+	}
+	
+	function proc9(){
+		a3 = a.concat(a2);		
+		res = `a = ${a} <br>`;
+		res += `a2 = ${a2} <br>`;
+		res += `a3 = a.concat(a2) <br> : ${a3}`;
+		document.querySelector("#result9").innerHTML = res;
+	}
+	
+	function proc10(){
+		res = "a2의 배열길이 : " + a2.length + "<br>";
+		
+		a3 = a2.join();
+		res += `a2.join 문자열 : ${a3.length} <br>`;
+		document.querySelector("#result10").innerHTML = res;
+		
+		res = "<br> a2 배열 <br>";
+		for(i = 0; i < a2.length; i++){
+			res += `${i} 번째 요소 : ${a2[i]} <br>`;
+		}
+		res += "<br> a2.join()후 a3 문자열 <br>"
+		for(i = 0; i < a3.length; i++){
+			res += `${i} 번째 요소 : ${a3[i]} <br>`;
+		}
+		
+		document.querySelector("#result10").innerHTML += res;
+		
+	}
+</script>
+</head>
+<body>
+
+	<div class = "box">
+		<h2>1. 배열</h2>
+		- a = [11, 100, 180, 53, 22, 230, 450]<br>
+		- Reverse() : 배열을 거꾸로 출력<br>
+		- Sort() : 100, 11 ,180, 22, 230, 450, 53<br>
+		- Sort(function(a,b)){} : 오름차순<br>
+		- Sort(function(a,b)){} : 내림차순<br>
+		<input type = "button" value = "Reverse" onclick = "proc1()"> 
+		<input type = "button" value = "Sort기본" onclick = "proc2()"> 
+		<input type = "button" value = "Sort-ASC" onclick = "proc3()"> 
+		<input type = "button" value = "Sort-DESC" onclick = "proc4()"> 
+		<div id = "result1"></div>
+		<div id = "result2"></div>
+		<div id = "result3"></div>
+		<div id = "result4"></div>
+	</div>
+	
+	<div class = "box">
+		<h2>2. 배열</h2>
+		- a2 = ["사과", "포도", "수박", "참외", "파인애플", "망고", "딸기", "자몽"]<br>
+		- Slice(start, end) : start ~ end-1 까지의 추출<br>
+		- Splice(idx, n, expr1, ...) : 수정 - 삽입/추가, 삭제, 삭제후 추가<br>
+		- Splice(3, 0, "메론") : 3번째 위치에 메론을 삽입<br>
+		- Splice(3, 1, "메론", "자두") : 3번째 인덱스에 있던 기존 데이터를 1개 지우고 메론, 자두를 삽입<br>
+		- Splice(2,2) : 2번째 위치에서 2개의 요소를 삭제한다.<br>
+		<input type = "button" value = "Slice" onclick = "proc5()"> 
+		<input type = "button" value = "Splice(idx,0,add)" onclick = "proc6()"> 
+		<input type = "button" value = "Splice(idx,1,add)" onclick = "proc7()"> 
+		<input type = "button" value = "Splice(idx,del)" onclick = "proc8()"> 
+		<div id = "result5"></div>
+		<div id = "result6"></div>
+		<div id = "result7"></div>
+		<div id = "result8"></div>
+	</div>
+
+	<div class = "box">
+		<h2>3. 배열</h2>
+		- a = [11, 100, 180, 53, 22, 230, 450]<br>
+		- a2 = ["사과", "포도", "수박", "참외", "파인애플", "망고", "딸기", "자몽"]<br>
+		- a.concat(a2) : a와 a2가 합쳐져서 새로운 배열을 만든다<br>
+		- a.join() : a배열을 하나의 문자열로 변환한다.<br>
+		- a2.join() : a2배열을 하나의 문자열로 변환한다.<br>
+		<input type = "button" value = "concat" onclick = "proc9()"> 
+		<input type = "button" value = "join" onclick = "proc10()"> 
+		<div id = "result9"></div>
+		<div id = "result10"></div>
+	</div>
+	
+</body>
+</html>

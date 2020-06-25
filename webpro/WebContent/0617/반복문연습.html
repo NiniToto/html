@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href = "../css/mycss.css">
+<style>
+</style>
+<script type="text/javascript">
+	window.onload = function(){
+		res = "";
+		for(i = 1; i <= 10; i++){
+			for(j = 1; j <= 10; j++){
+				if((i+j) % 3 != 0){
+					continue;
+				}
+				res += "i : " + i + " j : "  + j + "<br>";
+			}
+		}
+		//window.alert(res);
+		//console.log(res);
+		document.querySelector("#result1").innerHTML = res;
+	}
+	
+	function proc2(){
+		
+		
+		
+	}
+</script>
+</head>
+<body>
+<pre>
+버튼 없이 실행하자마자 결과를 출력한다
+-> window.onload function(){
+	로직 구현
+	document.querySelector("#result1").innerHTML = res;
+}
+
+</pre>
+	<div class = "box">
+		<h2>1. 1~100까지의 짝수 합 구하기 </h2>
+		- 다중 for문을 이용해서 1~10까지 중<br>
+		- i와 k의 더한 합이 3의 배수일때만 출력<br>
+		- continue를 이용 <br>
+		<!-- <input type = "button" value = "확인" onclick = "proc1()"> -->
+		<div id = "result1"></div>
+	</div>
+	
+	<div class = "box">
+		<h2>2. 두 수를 입력하여 두 수의 합이 100이상일 때만 출력 </h2>
+		- continue를 이용 <br>
+		- 두 수 모두 0이 입력되면 종료<br>
+		<input type = "button" value = "확인" onclick = "proc12()"> 
+		<div id = "result2"></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href = "../css/mycss.css">
+<style>
+</style>
+<script type="text/javascript">
+	
+	a = "우리 나라 좋은 나라 대한민국 만세";
+	
+	function proc1(){
+		idx = a.indexOf("나라");
+		res = `찾는 글자 : 나라 <br>`;
+		res += `${idx} 번 째 <br>`;
+		document.getElementById("result1").innerHTML = res; 
+	}
+
+	function proc2(){
+		idx = a.lastIndexOf("나라");
+		res = `찾는 글자 : 나라 <br>`;
+		res += `${idx} 번 째 <br>`;
+		document.getElementById("result2").innerHTML = res; 
+	}
+
+	function proc3(){
+		idx = 0;
+		res = `찾는 글자 : 나라 <br>`;
+		
+		while(true){
+			
+			idx = a.indexOf("나라", idx);
+			
+			if(idx == -1) break;
+			
+			res += `${idx} 번 째 <br>`;
+			
+			idx += "나라".length;
+		}
+		document.getElementById("result3").innerHTML = res; 
+	}
+	
+	function proc4(){
+		a2 = "A Good Morning Happy day";
+		str = a2.charAt(0);
+		
+		res = `0번째 위치 : a2.charAt(0) <br>`;
+		res += `${str} <br>`;
+		document.getElementById("result4").innerHTML = res; 
+	}
+	
+	function proc5(){
+		a2 = "A Good Morning Happy day";
+		str = a2.charCodeAt(0);
+		
+		res = `0번째 위치 : a2.charCodeAt(0) <br>`;
+		res += `${str} <br>`;
+		document.getElementById("result5").innerHTML = res; 
+	}
+	
+	function proc6(){
+		a = prompt("이름을 입력하세요.");
+		res = `입력 이름 : ${a} <br>`;
+		res += `길이 : ${a.length} <br>`;
+		
+		a1 = a.trim();
+		
+		res += `공백 제거 : ${a1.length} <br>`;
+		
+		document.getElementById("result6").innerHTML = res;
+		
+	}
+	
+	function proc7(){
+		userName = document.getElementById("user").value;
+		
+		res = "입력한 값 : " + userName + "<br>";
+		res += "길이 : " + userName.length + "<br>";
+		
+		userName = userName.trim();
+		
+		if(userName.length < 1){
+			alert("필수 입력 항목입니다.");
+			return false;
+		}
+		res += "trim() 후 : " + userName + "<br>";
+		res += "길이 : " + userName.length + "<br>";
+		
+		document.getElementById("result7").innerHTML = res;
+	}
+	
+	function proc8(){
+		str = a.substring(5, 10);
+		res = `원래 문자열 : ${a} <br>`;
+		res += `a.substring(5, 10) : ${str} <br>`;
+		
+		document.getElementById("result8").innerHTML = res;
+	}
+	
+	function proc9(){
+		str = a.slice(5, 10);
+		res = `원래 문자열 : ${a} <br>`;
+		res += `a.slice(5, 10) : ${str} <br>`;
+		
+		document.getElementById("result9").innerHTML = res;
+	}
+
+	function proc10(){
+		str = a.substr(5, 10);
+		res = `원래 문자열 : ${a} <br>`;
+		res += `a.substr(5, 10) : ${str} <br>`;
+		
+		document.getElementById("result10").innerHTML = res;
+	}
+	
+	function proc11(){
+		res = `문자열 길이 : ${a.length} <br>`;
+		list = a.split(" ");
+		res += `a.split(" ")의 길이 : ${list.length} <br>`;
+		
+		for(i = 0; i < list.length; i++){
+			res += `${i} 번째 : ${list[i]} <br>`;
+		}
+		document.getElementById("result11").innerHTML = res;
+		
+	}
+	
+	function proc12(){
+		text = document.getElementsByTagName("textarea")[0];
+		// document.querySelector("textarea")
+		tvalue = text.value;
+		
+		tvalue = tvalue.replace(/\r/g, "").replace(/\n/g, "<br>");
+		
+		document.getElementById("result12").innerHTML = tvalue;
+	}
+</script>
+</head>
+<body>
+
+	<div class = "box">
+		<h2>1. String </h2>
+		- a = "우리 나라 좋은 나라 대한민국 만세"<br>
+		- indexOf(item, start)<br>
+		- lastIndexOf(item, start)<br>
+		<input type = "button" value = "indexOf" onclick = "proc1()">
+		<input type = "button" value = "lastIndexOf" onclick = "proc2()">
+		<input type = "button" value = "indexOf(중복찾기)" onclick = "proc3()">
+		<div id = "result1"></div>
+		<div id = "result2"></div>
+		<div id = "result3"></div>
+	</div>
+
+	<div class = "box">
+		<h2>2. String </h2>
+		- a = "우리 나라 좋은 나라 대한민국 만세"<br>
+		- charAt(idx)<br>
+		- charCodeAt(idx)<br>
+		<input type = "button" value = "charAt" onclick = "proc4()">
+		<input type = "button" value = "charCodeAt" onclick = "proc5()">
+		<input type = "button" value = "trim" onclick = "proc6()">
+		<div id = "result4"></div>
+		<div id = "result5"></div>
+		<div id = "result6"></div>
+	</div>
+	
+	<div class = "box">
+		<h2>3. String </h2>
+		<form action="test.jsp" method = "post" onsubmit = "return false;">
+			이름 : <input type = "text" id = "user"><br>
+			<input type = "button" value = "trim" onclick = "proc7()">
+		</form>
+		
+		<div id = "result7"></div>
+	</div>
+
+	<div class = "box">
+		<h2>4. String </h2>
+		- substring(start, end) : start ~ end-1 까지의 문자열 추출<br>
+		- slice(start, end) : start ~ end-1 까지의 문자열 추출<br>
+		- substr(start, length) : start 부터 length만큼 추출<br>
+		<input type = "button" value = "substring" onclick = "proc8()">
+		<input type = "button" value = "slice" onclick = "proc9()">
+		<input type = "button" value = "substr" onclick = "proc10()">
+		
+		<div id = "result8"></div>
+		<div id = "result9"></div>
+		<div id = "result10"></div>
+	</div>
+	
+	<div class = "box">
+		<h2>5. String </h2>
+		- a = "우리 나라 좋은 나라 대한민국 만세"<br>
+		- split('구분자') : 구분자를 기준으로 문자열을 분리, 배열로 리턴<br>
+		<input type = "button" value = "split" onclick = "proc11()">
+		
+		<div id = "result11"></div>
+	</div>
+	<div class = "box">
+		<h2>6. String </h2>
+		- replace(old, new) : old문자를 new문자로 변경<br>
+		<textarea rows="10" cols="50"></textarea><br>
+		<input type = "button" value = "replace" onclick = "proc12()">
+		
+		<div id = "result12"></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href = "../css/mycss.css">
+<style>
+</style>
+<script type="text/javascript">
+	function proc1(){
+				
+		//winKR = window.open("../점심/한식.html","한식","width = 500px height = 500px");
+		//winCN = window.open("../점심/중식.html","중식","width = 500px height = 500px");
+		//winAM = window.open("../점심/양식.html","양식","width = 500px height = 500px");
+		//winJP = window.open("../점심/일식.html","일식","width = 500px height = 500px");
+		
+		array = [window.open("../점심/한식.html","한식","width = 500px height = 500px"),
+		         window.open("../점심/중식.html","중식","width = 500px height = 500px"),
+		         window.open("../점심/양식.html","양식","width = 500px height = 500px"),
+		         window.open("../점심/일식.html","일식","width = 500px height = 500px")];
+		
+		rnd = parseInt(Math.random() * array.length);
+		
+		array[rnd];
+
+	}
+</script>
+</head>
+<body>
+	<div class = "box">
+		<h2>점심 못고름</h2>
+		- 대신 골라줘<br>
+		<input type = "button" value = "랜덤" onclick = "proc1()"> <br>
+		<hr>
+		<input type = "button" value = "한식" onclick = "proc2()"> 
+		<input type = "button" value = "중식" onclick = "proc3()"> 
+		<input type = "button" value = "양식" onclick = "proc4()"> 
+		<input type = "button" value = "일식" onclick = "proc5()"> 
+		<div id = "result1"></div>
+	</div>
+	
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	input[type = "text"]{
+		margin: 20px 0px 20px 42%;
+		width: 50px;
+	}
+	input[type = "button"]{
+		margin-left : 20px;
+	}
+	#result1{
+		width : 40%;
+		margin-left : 30%;
+		border : 2px solid gray;
+		text-align: center;
+		overflow : scroll;
+	}
+</style>
+<script type="text/javascript">
+	function proc1(){
+		
+		vin = document.getElementById("in").value;
+		
+		if(vin >= 2 && vin <= 9){
+			//console.log(vin);
+			res = "결과 출력 <br><br>" ;
+			for(i = 1; i <= 9; i++){
+				res += `${vin} * ${i} = ${vin*i} <br>`;
+			}
+			
+			document.querySelector("#result1").innerHTML = res;
+		}else{
+			alert("잘못입력했습니다.\n다시입력하세요.\n\n2~9단만 출력 가능");
+			return false;
+		}
+		
+		
+	}
+</script>
+</head>
+<body>
+	<div class = "box">
+		<input id = "in" type = "text">단
+		<input type = "button" value = "출력" onclick = "proc1()"> 
+		<div id = "result1">결과 출력</div>
+	</div>
+	
+</body>
+</html>

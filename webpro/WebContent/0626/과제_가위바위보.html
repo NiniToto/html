@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	input{
+		margin: 20px 42%;
+		
+	}
+	span{
+		width : 45%;
+		color : black;
+		text-align: center;
+		display: inline-block;
+	}
+	#s1{
+		background-color: yellow;
+	}
+	#s2{
+		background-color: red;
+	}
+	img{
+		width : 45%;
+		height: 80%;
+	}
+	#result1{
+		width: 90%;
+		padding-top : 50px;
+		text-align: center;
+		border : 2px solid skyblue;
+		font-size: 2.0em;
+	}
+	
+</style>
+<script type="text/javascript">
+	function proc1(){
+		arr = ["가위", "바위", "보"];
+		imgL = ["가위_좌.png", "바위_좌.png", "보_좌.png"];
+		imgR = ["가위_우.png", "바위_우.png", "보_우.png"];
+		
+		input = prompt("가위 바위 보를 입력하세요.");
+		
+		if(input == "가위"){
+			document.querySelector("#img1").setAttribute("src", `../images/${imgL[0]}`);
+		}else if(input == "바위"){
+			document.querySelector("#img1").setAttribute("src", `../images/${imgL[1]}`);
+		}else if(input == "보"){
+			document.querySelector("#img1").setAttribute("src", `../images/${imgL[2]}`);
+		}else{
+			alert("잘못입력했습니다.\n다시입력하세요.\n\n'가위, 바위, 보' 중에서만 입력하세요.");
+			return false;
+		}
+		
+		idx = parseInt(Math.random() * arr.length);
+		document.querySelector("#img2").setAttribute("src", `../images/${imgR[idx]}`);
+		
+		
+		if(input == "가위" && idx == 2 || input == "바위" && idx == 0 || input == "보" && idx == 1){
+			document.querySelector("#result1").innerHTML = "결과 : 유저 승리!!!"; 
+		}else if(input == arr[idx]){
+			document.querySelector("#result1").innerHTML = "결과 : 비겼습니다."; 
+		}else{
+			document.querySelector("#result1").innerHTML = "결과 : 컴퓨터 승리..."; 
+		}
+		
+	}
+</script>
+</head>
+<body>
+	<div class = "box">
+		<input type = "button" value = "게임시작" onclick = "proc1()"><br>
+		<span id = "s1">유저</span>
+		<span id = "s2">컴퓨터</span> 
+		<img id = "img1" alt="바위_좌" src="../images/바위_좌.png">
+		<img id = "img2" alt="바위_우" src="../images/바위_우.png">
+		<div id = "result1"></div>
+	</div>
+	
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	select{
+		width : 50px;
+		height : 30px;
+		margin: 20px 0px 20px 42%;
+		width: 50px;
+	}
+	input[type = "button"]{
+		margin-left : 20px;
+	}
+	#result1{
+		width : 40%;
+		margin-left : 30%;
+		border : 2px solid gray;
+		text-align: center;
+		overflow : scroll;
+	}
+</style>
+<script type="text/javascript">
+	function proc1(){
+		val = document.querySelector("select").value;
+		
+		//console.log(val);
+		
+		res = "결과 출력 <br><br>" ;
+		for(i = 1; i <= 9; i++){
+			res += `${val} * ${i} = ${val*i} <br>`;
+		}
+		
+		document.querySelector("#result1").innerHTML = res;
+	}
+</script>
+</head>
+<body>
+	<div class = "box">
+		<select name = "구구단">
+			<option value = "2">2단</option>
+			<option value = "3">3단</option>
+			<option value = "4">4단</option>
+			<option value = "5">5단</option>
+			<option value = "6">6단</option>
+			<option value = "7">7단</option>
+			<option value = "8">8단</option>
+			<option value = "9">9단</option>
+		</select>
+		<input type = "button" value = "출력" onclick = "proc1()"> 
+		<div id = "result1">결과 출력</div>
+	</div>
+	
+</body>
+</html>

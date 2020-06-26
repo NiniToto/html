@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href = "../css/mycss.css">
+<style>
+</style>
+<script type="text/javascript">
+function proc1(){
+	arr = ["소호" , "짬뽕가", "사거리 중국집"];
+	
+	a = setInterval(function(){
+		
+		rnd = parseInt(Math.random() * arr.length);
+		
+		document.querySelector("#result1").innerHTML = arr[rnd];
+		
+	}, 100)
+	
+	t.style.display = "none";
+}
+
+function stop(){
+	
+	clearInterval(a);
+	
+	//확인버튼 보이게 한다.
+	//document.querySelector("#pro").style;
+	but.style.display = "inline-block";
+	
+}
+</script>
+</head>
+<body>
+	<div class = "box">
+		<h2>중식</h2>
+		- 1. 소호 중국집<br>
+		- 2. 짬뽕가<br>
+		- 3. 사거리 중국집<br>
+		<input type = "button" value = "확인" onclick = "proc1()"> 
+		<input type = "button" value = "고르기" onclick = "stop()"> 
+		<div id = "result1"></div>
+	</div>
+	
+</body>
+</html>

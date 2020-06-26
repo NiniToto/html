@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href = "../css/mycss.css">
+<style>
+</style>
+<script type="text/javascript">
+	function proc1(t){
+		but = t;
+		arr = ["원우스터치" , "맥도날드", "그러면.."];
+		
+		a = setInterval(function(){
+			
+			rnd = parseInt(Math.random() * arr.length);
+			
+			document.querySelector("#result1").innerHTML = arr[rnd];
+			
+		}, 100)
+		
+		t.style.display = "none";
+	}
+	
+	function stop(){
+		
+		clearInterval(a);
+		
+		//확인버튼 보이게 한다.
+		//document.querySelector("#pro").style;
+		but.style.display = "inline-block";
+		
+		
+		
+		
+	}
+</script>
+</head>
+<body>
+	<div class = "box">
+		<h2>양식</h2>
+		- 1. 원우스터치<br>
+		- 2. 맥도날드<br>
+		- 3. 그러면..<br>
+		<input type = "button" value = "시작" onclick = "proc1(this)"> 
+		<input type = "button" value = "고르기" onclick = "stop()"> 
+		<div id = "result1"></div>
+	</div>
+	
+</body>
+</html>

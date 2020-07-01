@@ -34,6 +34,7 @@
 	
 </style>
 <script type="text/javascript">
+	
 	function proc1(){
 		arr = ["가위", "바위", "보"];
 		imgL = ["가위_좌.png", "바위_좌.png", "보_좌.png"];
@@ -55,7 +56,6 @@
 		idx = parseInt(Math.random() * arr.length);
 		document.querySelector("#img2").setAttribute("src", `../images/${imgR[idx]}`);
 		
-		
 		if(input == "가위" && idx == 2 || input == "바위" && idx == 0 || input == "보" && idx == 1){
 			document.querySelector("#result1").innerHTML = "결과 : 유저 승리!!!"; 
 		}else if(input == arr[idx]){
@@ -63,7 +63,6 @@
 		}else{
 			document.querySelector("#result1").innerHTML = "결과 : 컴퓨터 승리..."; 
 		}
-		
 	}
 </script>
 </head>

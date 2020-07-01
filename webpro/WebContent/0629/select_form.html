@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href = "../css/mycss.css">
+<style>
+	div{
+		width : 70%;
+	}
+	.box{
+		height : auto;
+	}
+	.dd{
+		float : left;
+	}
+	#left, #right{
+		width : 20%;
+		height : 230px;
+		padding : 0px;
+	}
+	#center{
+		width : 17.5%;
+		height : 200px;
+		text-align: center;
+	}
+	#footer{
+		clear : both;
+	}
+	#header, #footer{
+		width : 60%;
+		text-align: center;
+	}
+	select{
+		width : 100%;
+		height : 100%;
+	}
+	.box input[type = "button"]{
+		width : 40%;
+		height : 30px;
+		padding : 0px;
+	}
+	#footer input[type = "button"]{
+		width : 80px; 
+	}
+</style>
+<script type="text/javascript">
+	window.onload = function(){
+		sf = document.selform;
+	}
+	function proc1(){
+		//입력 값 가져오기
+		//입력값으로 <option value = "aa">aa</option>을 생성한다.
+		tvalue = sf.txt.value;
+		if(tvalue.trim().length < 1){
+			alert("데이터를 입력하세요");
+			return false;
+		}
+		
+		opt = document.createElement("option");
+		opt.value = tvalue;
+		opt.text = tvalue;
+		
+		sf.ls.appendChild(opt);
+		
+		/* opt.setAttribute("value", tvalue);
+		
+		topt = document.createTextNode(tvalue);
+		opt.appendChild(topt);
+		
+		sf.ls.appendChild(opt); */
+		
+		//입력한 내용 지우기
+		sf.txt.value = "";
+		sf.txt.focus();
+	}
+	function toRight(){
+		//왼쪽에서 선택한 값을 오른쪽으로 보내기
+		
+		idx = sf.ls.selectedIndex;
+		
+		//선택한 항목이 없다면 
+		if(idx == -1){
+			alert("항목을 선택하고 눌러라");
+			return false;
+		}
+		
+		/* 
+		//왼쪽에서 선택한 항목이 있다면 idx번쨰의 값을 가져온다.
+		lvalue = sf.ls.options[idx].value;
+		
+		//오른쪽으로 보내고 왼쪽에서는 지운다.
+		ropt = document.createElement("option");
+		ropt.value = lvalue;
+		ropt.text = lvalue;
+		sf.rs.appendChild(ropt);
+		
+		sf.ls.removeChild(sf.ls.options[idx]); 
+		*/
+		sf.rs.appendChild(sf.ls.options[idx]);
+		
+		
+	}
+	function toRightAll(){
+		//왼쪽의 개수값을 얻는다.
+		leng = sf.ls.length;
+		for(i = 0; i < leng; i++){
+			lvalue = sf.ls.options[0].value;
+			
+			//오른쪽으로 보내고 왼쪽에서는 지운다.
+			ropt = document.createElement("option");
+			ropt.value = lvalue;
+			ropt.text = lvalue;
+			sf.rs.appendChild(ropt);
+			
+			//왼쪽에서 지운다.
+			sf.ls.removeChild(sf.ls.options[0]); 
+		}
+		
+		/* for(i = 0; i < sf.ls.length; i++){
+			sf.rs.appendChild(sf.ls.options[0]);
+		} */
+	}
+	function toLeft(){
+		//오른쪽에서 선택한 값을 왼쪽으로 보내기
+		
+		idx = sf.rs.selectedIndex;
+		
+		//선택한 항목이 없다면 
+		if(idx == -1){
+			alert("항목을 선택하고 눌러라");
+			return false;
+		}
+		
+		/* 
+		//오른쪽에서 선택한 항목이 있다면 idx번쨰의 값을 가져온다.
+		lvalue = sf.ls.options[idx].value;
+		
+		//왼쪽으로 보내고 오른쪽에서는 지운다.
+		ropt = document.createElement("option");
+		ropt.value = lvalue;
+		ropt.text = lvalue;
+		sf.rs.appendChild(ropt);
+		
+		sf.ls.removeChild(sf.ls.options[idx]); 
+		*/
+		sf.ls.appendChild(sf.rs.options[idx]);
+		
+		
+	}
+	function toLeftAll(){
+		leng = sf.rs.length;
+		for(i = 0; i < leng; i++){
+			rvalue = sf.rs.options[0].value;
+			
+			lopt = document.createElement("option");
+			lopt.value = rvalue;
+			lopt.text = rvalue;
+			sf.ls.appendChild(lopt);
+			
+			sf.rs.removeChild(sf.rs.options[0]); 
+		}
+	}
+	
+</script>
+</head>
+<body>
+<pre>
+form태그안에 input type = text인 요소가 한개만 있을 경우
+자동으로 submit이 실행된다.
+자동 submit을 방지하기 위해서 form onsubmit = return false; 를 기술해준다.
+
+새로운 내용이나 태그를 appendChild()로 추가한다.
+기존의 이미 있는 내용이나 태그를 appendChild()하면 이동된다.	
+</pre>
+<hr>
+<hr>
+<hr>
+<hr>
+	<div class = "box">
+		<form name = "selform" onsubmit = "return false;">
+			<h2>1. select form</h2>
+			<div id = "header">select객체 예제</div>
+			<div class = "dd" id = "left">
+			<select name = "ls" size = "9" multiple>
+			</select>
+			</div>
+			<div class = "dd" id = "center">
+				<input type = "button" value = ">" onclick = "toRight()"><br>
+				<input type = "button" value = ">>" onclick = "toRightAll()"><br>
+				<input type = "button" value = "<" onclick = "toLeft()"><br>
+				<input type = "button" value = "<<" onclick = "toLeftAll()"><br>
+			</div>
+			<div class = "dd" id = "right">
+				<select name = "rs" size = "9" multiple>
+				</select>
+			</div>
+			<div id = "footer">
+				<input type = "text" name = "txt">
+				<input type = "button" value = "추가" onclick = "proc1()"> 
+			</div>
+		</form>
+	</div>
+	
+</body>
+</html>

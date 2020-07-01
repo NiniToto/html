@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href = "../css/mycss.css">
+<style>
+	textarea{
+		font-size : 1.5em;
+		line-height : 40px;
+	}
+</style>
+<script type="text/javascript">
+	
+	window.onload = function(){
+		f = document.ff;
+		f.name.focus();
+		
+		//f.name 이름에 포커스를 얻었을 때 파랑색 테두리 설정
+		//스크립트에서 이벤트(기능)를 부여할 때 
+		f.name.addEventListener('focus', textborder);
+		/* n1 = document.querySelector("#n1");
+		ne1.addEventListener("focus", textborder); */
+	}
+	
+	function textborder(){
+		this.style.border = "2px solid blue";
+	}
+	
+	function proc1(){
+		name = f.name.value;
+		
+		if(name.trim().length < 1){
+			alert("이름을 입력하세요.");
+			f.name.focus();
+			return false;
+		}
+		
+		gender = f.gender.value;
+		
+		//console.log(`${name} ${gender} ${hobby}`);
+		
+		res = `이름 : ${name} \n성별 : ${gender} \n취미 : `;
+		//res = `이름 : ${name} <br>성별 : ${gender} <br>취미 : `;
+		
+		//취미에서 값 가져오기위해서 
+		for(i = 0; i < f.like.length; i++){
+			//선택여부를 비교해서 값을 가져온다.
+			if(f.like[i].checked){
+				res += `${f.like[i].value}  `;
+			}else{
+				res += `선택한 취미가 하나도 없습니다.`;
+				break;
+			}
+		}
+		
+		//f.info.innerHTML = res;
+		f.info.value = res;
+	}
+</script>
+</head>
+<body>
+	<div class = "box">
+		<h2>1. form 문제 2</h2>
+		- 리터럴 생성<br>
+		<br>
+		
+		<form name = "ff">
+			이름 : <input type = "text" name = "name" id = "n1">
+			<br><br>
+			성별 : 
+				<input type = "radio" name = "gender" checked = "checked" value = "남자">남자
+				<input type = "radio" name = "gender" value = "여자">여자
+			<br><br>
+			취미 : 
+				<input type = "checkbox" name = "like" checked = "checked" value = "운동">운동
+				<input type = "checkbox" name = "like" value = "독서">독서 
+				<input type = "checkbox" name = "like" checked value = "영화감상">영화감상 
+				<input type = "checkbox" name = "like" value = "음악감상">음악감상 
+				<input type = "checkbox" name = "like" value = "피아노연주">피아노연주 
+				<input type = "checkbox" name = "like" checked value = "여행">여행 
+				<input type = "checkbox" name = "like" value = "그림그리기">그림그리기
+			<br><br> 
+			<input type = "button" value = "확인" onclick = "proc1()"> 
+			<br><br>
+			<textarea rows="10" cols="50" name = "info"></textarea>
+		</form>
+	</div>
+	
+</body>
+</html>

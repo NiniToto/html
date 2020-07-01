@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href = "../css/mycss.css">
+<style>
+  img {
+    width : 100%;
+    height : 100%;
+  }
+  
+</style>
+<script type="text/javascript">
+
+	window.onload = function(){
+		boxes = document.querySelectorAll(".gbox");
+		imgs = document.getElementsByTagName("img");
+		
+		for(i = 0; i < imgs.length; i++){
+			imgs[i].addEventListener("mouseover", ImgOver);
+			imgs[i].addEventListener("mouseout", ImgOut);
+		}
+		
+		for(i = 0; i < boxes.length; i++){
+			//객체.addEventListener("이벤트 이름", 함수이름)
+			boxes[i].addEventListener("click", clickSales);
+		}
+	}
+	function clickSales(){
+		pid = document.querySelector("#ps");
+		if(pid != null){
+			parent = pid.parentNode;
+			parent.removeChild(pid);
+		}
+		
+		
+		rnd = parseInt(Math.random() * 6 + 5);
+		
+		text = `할인율 : ${rnd}%`;
+		
+		tNode = document.createTextNode(text);
+
+		ptag = document.createElement("p");
+		ptag.appendChild(tNode);
+		ptag.setAttribute("id", "ps");
+		this.appendChild(ptag);
+	}
+	function ImgOver(){
+		this.style.border = "2px solid red";
+	}
+	function ImgOut(){
+		this.style.border = "none";
+	}
+	
+	function proc1(){
+		rid = document.getElementById("result1");
+		
+		rid.style.backgroundColor = "yellow";
+		
+	}
+	function MouseOver(){
+		rid.style.border = "2px solid red";
+	}
+	function MouseOut(){
+		rid.style.border = "none";
+	}
+	function MouseDown(){
+		btn = document.getElementById("but");
+		btn.style.width = "200px";
+		btn.style.fontSize = "2.0em";
+	}
+	function MouseUp(){
+		btn.style.width = "150px";
+		btn.style.fontSize = "0.8em";
+	}
+</script>
+</head>
+<body>
+	<div class = "box">
+		<h2>1. 이벤트 mouseover/ mouseout </h2>
+		<input type = "button" value = "확인" onclick = "proc1()"> 
+		<div id = "result1" onmouseover = "MouseOver()" onmouseout = "MouseOut()"></div>
+	</div>
+	
+	<div class = "box">
+		<h2>2. 이벤트 mousedown/ mouseup </h2>
+		- 버튼을 누르면 MouseDown : button의 크기를 증가<br>
+		- 버튼을 놓으면 MouseUp : button의 크기를 원래 크기로 돌아오게 한다<br>
+		<input id = "but" type = "button" value = "확인" onmousedown = "MouseDown()" onmouseup ="MouseUp()"> 
+		<div id = "result2"></div>
+	</div>
+	
+	<div class = "box">
+		<h2>3. 이벤트</h2>
+		- guess_box에 대한 일괄 이벤트 등록 - click<br>
+		- img에 대한 일괄 이벤트 등록 - mouseover/mouseout<br>
+		<div id = "result3">
+			<div id="main">
+			    <div class="guess_box gbox">
+				   	<img src="../images/iu.jpg" >
+			    </div>
+			    
+			    <div class="guess_box gbox" >
+				    <img src="../images/iu2.jpg">
+			    </div>
+			    
+			    <div class="guess_box gbox" >
+				    <img src="../images/iu3.png">
+			    </div>
+			    
+			    <div class="guess_box gbox" >
+				    <img src="../images/토토2.png">
+			    </div>
+		  	</div>
+		</div>
+	</div>
+</body>
+</html>

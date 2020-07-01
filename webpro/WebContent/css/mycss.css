@@ -29,7 +29,7 @@ span{
 	background : rgba(233,134,200,0.3);	
 }
 
-.box input[type="button"], .box button[type = button]{
+.box input[type="button"], .box button[type = button], .box input[type = file]{
 	color : white;
 	background : blue;
 	font-weight : bold;

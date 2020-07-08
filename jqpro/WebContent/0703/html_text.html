@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href = "../css/mycss.css">
+<script src = "../js/jquery-3.5.1.min.js"></script>
+<style>
+	span{
+		background: yellow;
+	}
+</style>
+<script type="text/javascript">
+	$(function(){
+		$("#btn1").on("click", function(){
+			//res = $("p").eq(2).html();
+			res = $("p").html();
+			$("#result1").html(res);
+		});
+
+		$("#btn2").on("click", function(){
+			res = $(".box2 p").text();
+			$("#result2").html(res);
+		});
+		
+		$("#btn3").on("click", function(){
+			res = "";
+			$.each($(".box3 p"), function(i){
+				res += i + `번째 : ` + $(this).html() + `<br>`;
+			});
+			
+			//$("#result3").text(res);
+			$("#result3").html(res);
+			
+		});
+	});
+</script>
+</head>
+<body>
+	<div class = "box box1">
+		<h2>1. html/text</h2>
+		- $("p").html()<br>
+		- 첫번째 p태그의 내용을 가져온다, span태그를 포함한다. <br>
+		- #result1에 출력 - $("#result1").html(res) <br>
+		<input id = "btn1" type = "button" value = "확인">
+		<p> 1 <span>일재민</span> </p> 
+		<p> 2 <span>이재민</span> </p> 
+		<p> 3 <span>삼재민</span> </p> 
+		<p> 4 <span>사재민</span> </p> 
+		<div id = "result1"></div>
+	</div>
+	<div class = "box box2">
+		<h2>2. html/text</h2>
+		- $("p").text()<br>
+		- 모든 p태그를 대상으로 문자만 가져온다.
+		- #result2에 출력 - $("#result2").html(res) <br>
+		<input id = "btn2" type = "button" value = "확인">
+		<p> 1 <span>일재민</span> </p> 
+		<p> 2 <span>이재민</span> </p> 
+		<p> 3 <span>삼재민</span> </p> 
+		<p> 4 <span>사재민</span> </p> 
+		<div id = "result2"></div>
+	</div>
+		<div class = "box box3">
+		<h2>3. html/text</h2>
+		- 모든 p태그를 대상으로 실행할떄는 반복문을 사용<br>
+		- 반복문 안에서 this로 각 p태그를 접근한다<br>
+		- $(요소선택).each(function(매개변수1, 매개변수2){...}); <br>
+		- $.each("요소선택", function(매개변수1, 매개변수2){...}); <br>
+		<br>
+		- $("#result3").html(값) : #result3에 출력 <br>
+		- $("#result3").text(값) : 만약에 값에 html태그가 포함되어 있어도 문자화한다.<br>
+		<input id = "btn3" type = "button" value = "확인">
+		<p> 1 <span>일재민</span> </p> 
+		<p> 2 <span>이재민</span> </p> 
+		<p> 3 <span>삼재민</span> </p> 
+		<p> 4 <span>사재민</span> </p> 
+		<div id = "result3"></div>
+	</div>
+	
+</body>
+</html>

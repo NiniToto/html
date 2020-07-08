@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel = "stylesheet" href = "../css/mycss.css">
+<script src = "../js/jquery-3.5.1.min.js"></script>
+<style>
+</style>
+<script type="text/javascript">
+ 	
+	window.onload = function(){
+		vres = document.querySelector("#result1");
+		
+		vres.innerHTML = "HELL0!! JavaScript";
+		vres.style.color = "red";
+		vres.style.fontSize = "2.0em";
+	} 
+
+	$(document).ready(function(){
+	
+		vres = $("#result2");
+		vres.html("Hello!!! JQUERY");
+		//vres.css("color", "red").css("font-size", "2.0em");
+		vres.css({"color" : "red", "font-size" : "2.0em"});
+		
+	});
+
+</script>
+</head>
+<body>
+	<div class = "box">
+		<h2>JavaScript 실행</h2>
+		window.onload = function(){<br>
+			vres = document.querySelector("#result1"); <br>
+			vres.innerHTML = "HELL0!!";<br>
+			vres.style.color = "red";<br>
+			vres.style.fontSize = "2.0em";<br>
+		} <br>
+		<div id = "result1"></div>
+	</div>
+	<div class = "box">
+		<h2>jQuery 실행</h2>
+		$(document).ready(function(){<br>
+			vres = $("#result1");<br>
+			vres.html("Hello!!! JQUERY");<br>
+			//vres.css("color", "red").css("font-size", "2.0em");<br>
+			vres.css({"color" : "red", "font-size" : "2.0em"});<br>
+		});<br>
+		<div id = "result2"></div>
+	</div>
+</body>
+</html>

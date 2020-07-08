@@ -9,6 +9,11 @@
 		width : 200px;
 		background: skyblue;
 	}
+	img{
+		width : 150px;
+		height : 150px;
+		display : none;
+	}
 </style>
 <script type="text/javascript">
 	function readProc(){
@@ -23,6 +28,30 @@
 		
 		document.querySelector("#result1").innerHTML = res;
 		
+		//선택한 파일의 내용 가져오기
+		reader = new FileReader();
+		
+		if(vfile.type.match("image")){
+			reader.readAsDataURL(vfile);
+		}else{
+			reader.readAsText(vfile, "UTF-8"); //result속성에 자동으로 저장된다
+		}
+		//reader.result.match("image")
+		
+		//끝까지 읽을 때 까지 기다리고 출력한다.
+		reader.onload = function(){
+			document.querySelector("textarea").value = reader.result;
+			vimg = document.querySelector("#imgview");
+
+			//이미지가 맞는지 검증
+			if(reader.result.match("image")){
+				//이미지를 표시한다.
+				vimg.setAttribute("src", reader.result);
+				vimg.style.display = "inline-block";
+			}else{
+				vimg.style.display = "none";
+			}
+		}
 	}
 </script>
 </head>
@@ -46,6 +75,9 @@
 		<br>
 		<textarea rows = "10" cols = "60"></textarea>
 		<br>
+		<hr><br>
+		이미지 파일일 경우는 이미지를 출력한다.<br><hr><br>
+		<img id = "imgview" src = "../images/토토1.jpg" alt = ""><br>
 		<h2>파일 정보</h2>
 		<div id = "result1"></div>
 	</div>
